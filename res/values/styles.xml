@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fondo">#3cbad9</color>
+    <color name="letras">#d18c14</color>
+    <style name="CocoTheme" parent="android:Theme.Light">
+    	<item name="android:windowBackground">@color/fondo</item>
+    	<item name="android:colorBackground">@color/fondo</item>
+    	<item name="android:textColor">@color/letras</item>
+    	 <item name="android:textSize">20sp</item>
+    </style>
+</resources>

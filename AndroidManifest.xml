@@ -7,14 +7,18 @@
 
     <application android:icon="@drawable/icon" android:label="@string/app_name">
         <activity android:name=".MemoryCoconutActivity"
-                  android:label="@string/app_name">
+                  android:label="@string/app_name"
+                  android:theme="@style/CocoTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-	<activity android:name=".NoteEdit"></activity>
-	<activity android:name=".AcercaDeActivity"></activity>
-	<activity android:name=".AyudaActivity"></activity>
+	<activity android:name=".NoteEdit"
+	          android:theme="@style/CocoTheme"></activity>
+	<activity android:name=".AcercaDeActivity"
+	    	  android:theme="@style/CocoTheme"></activity>
+	<activity android:name=".AyudaActivity"
+	    	  android:theme="@style/CocoTheme"></activity>
     </application>
 </manifest>
