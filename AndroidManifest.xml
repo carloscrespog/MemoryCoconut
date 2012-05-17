@@ -15,5 +15,6 @@
         </activity>
 	<activity android:name=".NoteEdit"></activity>
 	<activity android:name=".AcercaDeActivity"></activity>
+	<activity android:name=".AyudaActivity"></activity>
     </application>
 </manifest>

@@ -15,5 +15,7 @@
     <string name="menu_acercade">Acerca de</string>
     <string name="content_acercade">Acerca de - Relleno</string>
     <string name="title_acercade">Acerca de MemoryCoconut</string>
+    <string name="menu_ayuda">Ayuda</string>
+    <string name="content_ayuda">Cómo usar MemoryCononut</string>
 </resources>
 
