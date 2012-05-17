@@ -29,6 +29,7 @@ public class MemoryCoconutActivity extends ListActivity {
 
     private static final int INSERT_ID = Menu.FIRST;
     private static final int DELETE_ID = Menu.FIRST + 1;
+    private static final int ACERCADE_ID = Menu.FIRST + 2;
 
     private NotesDbAdapter mDbHelper;
    
@@ -67,6 +68,7 @@ public class MemoryCoconutActivity extends ListActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         menu.add(0, INSERT_ID, 0, R.string.menu_insert);
+        menu.add(0, ACERCADE_ID, 0, R.string.menu_acercade);
         return true;
     }
 
@@ -76,9 +78,17 @@ public class MemoryCoconutActivity extends ListActivity {
             case INSERT_ID:
                 createNote();
                 return true;
+            case ACERCADE_ID:
+            	mostrarAcercade();
+            	return true;
         }
 
         return super.onMenuItemSelected(featureId, item);
+    }
+    private void mostrarAcercade() {
+    	Intent i = new Intent(this, AcercaDeActivity.class);//this referencia al Context
+    	 Log.v(LOGGER,"entrando en AcercaDe");
+         startActivityForResult(i, ACTIVITY_CREATE);
     }
 
     @Override

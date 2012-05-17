@@ -10,6 +10,10 @@
     <string name="confirm">Confirmar</string>
     <string name="edit_note">Editar nota</string>
     <string name="email">E-mail</string>
+    <string name="hello">Hola Cococola</string>
     <string name="alert">¿Está seguro que quiere eliminar este recocordatorio?</string>
+    <string name="menu_acercade">Acerca de</string>
+    <string name="content_acercade">Acerca de - Relleno</string>
+    <string name="title_acercade">Acerca de MemoryCoconut</string>
 </resources>
 
