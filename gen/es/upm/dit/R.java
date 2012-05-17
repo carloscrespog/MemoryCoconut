@@ -48,5 +48,6 @@ public final class R {
         public static final int no_notes=0x7f040001;
         public static final int title=0x7f040004;
         public static final int title_acercade=0x7f04000d;
+        public static final int title_ayuda=0x7f040010;
     }
 }
