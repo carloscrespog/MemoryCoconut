@@ -5,6 +5,7 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
@@ -15,6 +16,8 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
 public class MemoryCoconutActivity extends ListActivity {
+	
+    private static final String LOGGER="MemoCoco";
 	private static final int ACTIVITY_CREATE=0;
     private static final int ACTIVITY_EDIT=1;
 
@@ -92,6 +95,7 @@ public class MemoryCoconutActivity extends ListActivity {
 
     private void createNote() {
         Intent i = new Intent(this, NoteEdit.class);
+        Log.v(LOGGER,"entrando en noteEdit");
         startActivityForResult(i, ACTIVITY_CREATE);
     }
 
@@ -108,6 +112,7 @@ public class MemoryCoconutActivity extends ListActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
     	 super.onActivityResult(requestCode, resultCode, intent);
+    	 
     	    fillData();
     }
 }
