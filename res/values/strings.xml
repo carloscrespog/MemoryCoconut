@@ -13,10 +13,13 @@
     <string name="hello">Hola Cococola</string>
     <string name="alert">¿Está seguro que quiere eliminar este recocordatorio?</string>
     <string name="menu_acercade">Acerca de</string>
-    <string name="content_acercade">Acerca de - Relleno</string>
+    <string name="content_acercade">Esta aplicación ha sido desarrollada por Enrique García Navalón y Carlos Crespo González.</string>
     <string name="title_acercade">Acerca de MemoryCoconut</string>
     <string name="menu_ayuda">Ayuda</string>
-    <string name="content_ayuda">Cómo usar MemoryCononut</string>
+    <string name="content_ayuda1">Cómo usar MemoryCononut.</string>
+    <string name="content_ayuda2">Para crear un nuevo recocordatorio utilice la tecla de menú.
+        Puede editar sus recocordatorios clickando en ellos o eliminarlos si mantiene pulsado.
+        Para un batido de coco pulse el botón, pero ¡atengase a las consecuencias!</string>
     <string name="title_ayuda">Ayuda</string>
     <string name="button_batido">¡BATIDO DE COCO!</string>
 </resources>

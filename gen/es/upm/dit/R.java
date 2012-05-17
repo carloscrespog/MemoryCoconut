@@ -41,10 +41,11 @@ public final class R {
         public static final int alert=0x7f04000a;
         public static final int app_name=0x7f040000;
         public static final int body=0x7f040005;
-        public static final int button_batido=0x7f040011;
+        public static final int button_batido=0x7f040012;
         public static final int confirm=0x7f040006;
         public static final int content_acercade=0x7f04000c;
-        public static final int content_ayuda=0x7f04000f;
+        public static final int content_ayuda1=0x7f04000f;
+        public static final int content_ayuda2=0x7f040010;
         public static final int edit_note=0x7f040007;
         public static final int email=0x7f040008;
         public static final int hello=0x7f040009;
@@ -55,7 +56,7 @@ public final class R {
         public static final int no_notes=0x7f040001;
         public static final int title=0x7f040004;
         public static final int title_acercade=0x7f04000d;
-        public static final int title_ayuda=0x7f040010;
+        public static final int title_ayuda=0x7f040011;
     }
     public static final class style {
         public static final int BatidoCoco=0x7f060001;

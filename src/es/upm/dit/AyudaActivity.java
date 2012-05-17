@@ -11,6 +11,7 @@ import android.widget.ImageView;
 public class AyudaActivity extends Activity implements View.OnClickListener {
 	private Button cocoBtn;
 	private Vibrator vibrator;
+    
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,6 +27,7 @@ public class AyudaActivity extends Activity implements View.OnClickListener {
 		imageView.setImageResource(R.drawable.cocomalo);
 		setContentView(imageView);
 	}
+	
 	
 
 }

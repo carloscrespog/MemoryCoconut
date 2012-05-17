@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="fondo">#3cbad9</color>
-    <color name="letras">#d18c14</color>
+    <color name="fondo">#062842</color>
+    <color name="letras">#edf2f5</color>
     <style name="CocoTheme" parent="android:Theme.Light">
     	<item name="android:windowBackground">@color/fondo</item>
     	<item name="android:colorBackground">@color/fondo</item>
@@ -11,7 +11,7 @@
     <style name= "BatidoCoco" >
         <item name ="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">#00FF00</item>
-        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#093004</item>
+        <item name="android:textSize">15sp</item>
     </style>
 </resources>
