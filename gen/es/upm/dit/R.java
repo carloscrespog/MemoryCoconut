@@ -28,6 +28,7 @@ public final class R {
         public static final int reminder_row=0x7f030002;
     }
     public static final class string {
+        public static final int alert=0x7f040009;
         public static final int app_name=0x7f040000;
         public static final int body=0x7f040005;
         public static final int confirm=0x7f040006;

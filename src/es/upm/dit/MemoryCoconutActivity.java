@@ -1,7 +1,9 @@
 package es.upm.dit;
 
 
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -82,13 +84,31 @@ public class MemoryCoconutActivity extends ListActivity {
     }
 
     @Override
-    public boolean onContextItemSelected(MenuItem item) {
+    public boolean onContextItemSelected(final MenuItem item) {
         switch(item.getItemId()) {
             case DELETE_ID:
-                AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
-                mDbHelper.deleteNote(info.id);
-                fillData();
-                return true;
+            	
+            	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            	builder.setMessage(getString(R.string.alert))
+            	       .setCancelable(false)
+            	       .setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+            	           public void onClick(DialogInterface dialog, int id) {
+            	        	   
+            	        	   AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+            	    		   mDbHelper.deleteNote(info.id);
+            	    		   fillData();
+            	    		   
+            	        	   
+            	           }
+            	       })
+            	       .setNegativeButton("No", new DialogInterface.OnClickListener() {
+            	           public void onClick(DialogInterface dialog, int id) {
+            	                dialog.cancel();
+            	           }
+            	       });
+            	
+            	(builder.create()).show();
+            	return true;
         }
         return super.onContextItemSelected(item);
     }

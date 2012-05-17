@@ -2,13 +2,14 @@
 <resources>
     
     <string name="app_name">Memory coconut</string>
-    <string name="no_notes">No se han añadido recordatorios</string>
-    <string name="menu_insert">Nuevo recordatorio</string>
-    <string name="menu_delete">Borrar recordatorio</string>
+    <string name="no_notes">No se han añadido recocordatorios</string>
+    <string name="menu_insert">Nuevo recocordatorio</string>
+    <string name="menu_delete">Borrar recocordatorio</string>
     <string name="title">Título</string>
     <string name="body">Descripción</string>
     <string name="confirm">Confirmar</string>
     <string name="edit_note">Editar nota</string>
     <string name="email">E-mail</string>
+    <string name="alert">¿Está seguro que quiere eliminar este recocordatorio?</string>
 </resources>
 

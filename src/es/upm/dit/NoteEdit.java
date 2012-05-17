@@ -6,9 +6,8 @@ package es.upm.dit;
 
 import java.util.Calendar;
 
-
-
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.database.Cursor;
@@ -95,12 +94,19 @@ public class NoteEdit extends Activity {
         confirmButton.setOnClickListener(new View.OnClickListener() {
 
         	public void onClick(View view) {
-        		Toast.makeText(getBaseContext(), "wlololo",Toast.LENGTH_SHORT).show();
-        		//saveState();
-        		Toast.makeText(getBaseContext(), "finalizado saveState()",Toast.LENGTH_SHORT).show();
-                setResult(RESULT_OK);
-                Toast.makeText(getBaseContext(), "finalizado setResult()",Toast.LENGTH_SHORT).show();
-                finish();
+        		
+        		if((mTitleText.getText().toString()).equals("") || (mTitleText.getText().toString()).equals(" ")  ||
+            			(mBodyText.getText().toString()).equals("") || (mBodyText.getText().toString()).equals(" ") ||
+            			(mEmailText.getText().toString()).equals("") || (mEmailText.getText().toString()).equals(" ") ){
+        			showErrorMessage("Error", "No se han completado todos los campos");
+        		} else{
+        			setResult(RESULT_OK);
+                    Toast.makeText(getBaseContext(), "Recordatorio guardado",Toast.LENGTH_SHORT).show();
+                    finish();
+        		}
+
+            			
+                
             }
         });
         mDateSetListener =
@@ -207,5 +213,14 @@ public class NoteEdit extends Activity {
 	    	return new String(tokens[2] + "-" + tokens[1] + "-" + tokens[0]);
 
 	    }
-    
+	 private void showErrorMessage(String title, String content) {
+	    	
+	    	AlertDialog alertDialog;
+			alertDialog = new AlertDialog.Builder(this).create();
+			alertDialog.setTitle(title);
+			alertDialog.setMessage(content);
+			alertDialog.show();
+	    	
+
+	    }
 }
