@@ -9,4 +9,7 @@
     android:layout_height="wrap_content" 
     android:text="@string/content_ayuda"
     />
+<Button style="@style/BatidoCoco"
+   		android:id="@+id/cocoBtn" 
+        android:text="@string/button_batido"  />
 </LinearLayout>

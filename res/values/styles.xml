@@ -8,4 +8,10 @@
     	<item name="android:textColor">@color/letras</item>
     	 <item name="android:textSize">20sp</item>
     </style>
+    <style name= "BatidoCoco" >
+        <item name ="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#00FF00</item>
+        <item name="android:textSize">30sp</item>
+    </style>
 </resources>
