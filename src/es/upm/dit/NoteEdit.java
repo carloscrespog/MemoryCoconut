@@ -46,7 +46,6 @@ public class NoteEdit extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Toast.makeText(getBaseContext(), "OnCreateEdit",Toast.LENGTH_SHORT).show();
         mDbHelper = new NotesDbAdapter(this);
 
         mDbHelper.open();

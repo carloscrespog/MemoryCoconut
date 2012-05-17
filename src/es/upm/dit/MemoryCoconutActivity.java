@@ -1,6 +1,9 @@
 package es.upm.dit;
 
 
+import java.util.Calendar;
+
+
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
@@ -16,6 +19,7 @@ import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 public class MemoryCoconutActivity extends ListActivity {
 	
@@ -32,6 +36,7 @@ public class MemoryCoconutActivity extends ListActivity {
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
+    	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reminder_list);
         mDbHelper = new NotesDbAdapter(this);
@@ -43,14 +48,14 @@ public class MemoryCoconutActivity extends ListActivity {
     private void fillData() {
     	 Cursor notesCursor = mDbHelper.fetchAllNotes();
         // Get all of the rows from the database and create the item list
-        notesCursor = mDbHelper.fetchAllNotes();
+        
         startManagingCursor(notesCursor);
 
         // Create an array to specify the fields we want to display in the list (only TITLE)
-        String[] from = new String[]{NotesDbAdapter.KEY_TITLE};
+        String[] from = new String[]{NotesDbAdapter.KEY_TITLE, NotesDbAdapter.KEY_F};
 
         // and an array of the fields we want to bind those fields to (in this case just text1)
-        int[] to = new int[]{R.id.text1};
+        int[] to = new int[]{R.id.text1, R.id.text2};
 
         // Now create a simple cursor adapter and set it to display
         SimpleCursorAdapter notes = 
@@ -134,5 +139,25 @@ public class MemoryCoconutActivity extends ListActivity {
     	 super.onActivityResult(requestCode, resultCode, intent);
     	 
     	    fillData();
+    }
+    private int isOutdated(String date) {
+    	String[] tokens = date.split("-");
+    	Calendar rightNow = Calendar.getInstance();
+        //Toast.makeText(getBaseContext(), tokens[0]+tokens[1]+tokens[2],Toast.LENGTH_SHORT).show();
+        Integer nday=rightNow.get(rightNow.DAY_OF_MONTH);
+        
+        Integer nmonth=rightNow.get(rightNow.MONTH)+1;
+        
+       // Toast.makeText(getBaseContext(),"dia: "+nday.toString()+"mes: "+nmonth.toString(),Toast.LENGTH_SHORT).show();
+		if(nmonth<new Integer(tokens[1])){
+			return 1; //no está outdated
+		} else if(nmonth==new Integer(tokens[1]) && nday<new Integer(tokens[0])){
+			return 1; //no está outdated
+		} else if(nmonth==new Integer(tokens[1]) && nday==new Integer(tokens[0])){
+			return 0; //es hoy
+		} else {
+			return -1; //está outdated
+		}
+    	
     }
 }
