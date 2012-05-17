@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, MemoryCoconutActivity!</string>
-    <string name="app_name">MemoryCoconut</string>
+    
+    <string name="app_name">Memory coconut</string>
+    <string name="no_notes">No se han añadido recordatorios</string>
+    <string name="menu_insert">Nuevo recordatorio</string>
+    <string name="menu_delete">Borrar recordatorio</string>
+    <string name="title">Título</string>
+    <string name="body">Descripción</string>
+    <string name="confirm">Confirmar</string>
+    <string name="edit_note">Editar nota</string>
+    <string name="email">E-mail</string>
 </resources>
+
