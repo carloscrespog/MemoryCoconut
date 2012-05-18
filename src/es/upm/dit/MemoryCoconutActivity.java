@@ -179,4 +179,9 @@ public class MemoryCoconutActivity extends ListActivity {
 		}
     	
     }
+    
+    private void checkForNotifications(){
+    	Cursor notesCursor = mDbHelper.fetchAllNotes();
+    	notesCursor.moveToFirst();
+    }
 }

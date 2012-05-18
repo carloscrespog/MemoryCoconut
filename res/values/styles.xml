@@ -3,7 +3,7 @@
     <color name="fondo">#062842</color>
     <color name="letras">#edf2f5</color>
     <style name="CocoTheme" parent="android:Theme.Light">
-    	<item name="android:windowBackground">@color/fondo</item>
+    	<item name="android:windowBackground">@drawable/memorycoconutbg</item>
     	<item name="android:colorBackground">@color/fondo</item>
     	<item name="android:textColor">@color/letras</item>
     	 <item name="android:textSize">20sp</item>
