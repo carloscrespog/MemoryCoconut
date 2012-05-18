@@ -18,6 +18,7 @@ public final class R {
         public static final int cocomalo=0x7f020000;
         public static final int icon=0x7f020001;
         public static final int memorycoconutbg=0x7f020002;
+
         public static final int memorycoconuttitle=0x7f020003;
         public static final int splash=0x7f020004;
     }
@@ -33,15 +34,18 @@ public final class R {
         public static final int text1=0x7f070008;
         public static final int text2=0x7f070009;
         public static final int title=0x7f070002;
+
     }
     public static final class layout {
         public static final int acercade_view=0x7f030000;
         public static final int ayuda_layout=0x7f030001;
+
         public static final int coco_title=0x7f030002;
         public static final int reminder_edit=0x7f030003;
         public static final int reminder_list=0x7f030004;
         public static final int reminder_row=0x7f030005;
         public static final int splash=0x7f030006;
+
     }
     public static final class string {
         public static final int alert=0x7f04000a;

@@ -190,6 +190,7 @@ public class MemoryCoconutActivity extends ListActivity {
 			return -1; //está outdated
 		}
 
+
 	}
 
 	private void checkForNotifications(){
@@ -266,4 +267,5 @@ public class MemoryCoconutActivity extends ListActivity {
 		checkForNotifications();
 		super.onResume();
 	}
+
 }
