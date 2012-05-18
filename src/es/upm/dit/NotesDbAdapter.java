@@ -65,6 +65,7 @@ public class NotesDbAdapter {
     
 
     private final Context mCtx;
+    
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
 
