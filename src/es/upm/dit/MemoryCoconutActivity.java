@@ -22,7 +22,7 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
 public class MemoryCoconutActivity extends ListActivity {
-	
+
     private static final String LOGGER="MemoCoco";
 	private static final int ACTIVITY_CREATE=0;
     private static final int ACTIVITY_EDIT=1;
@@ -115,7 +115,7 @@ public class MemoryCoconutActivity extends ListActivity {
             	AlertDialog.Builder builder = new AlertDialog.Builder(this);
             	builder.setMessage(getString(R.string.alert))
             	       .setCancelable(false)
-            	       .setPositiveButton("SÃ­", new DialogInterface.OnClickListener() {
+            	       .setPositiveButton("S’", new DialogInterface.OnClickListener() {
             	           public void onClick(DialogInterface dialog, int id) {
             	        	   
             	        	   AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
@@ -169,14 +169,19 @@ public class MemoryCoconutActivity extends ListActivity {
         
        // Toast.makeText(getBaseContext(),"dia: "+nday.toString()+"mes: "+nmonth.toString(),Toast.LENGTH_SHORT).show();
 		if(nmonth<new Integer(tokens[1])){
-			return 1; //no estÃ¡ outdated
+			return 1; //no est‡ outdated
 		} else if(nmonth==new Integer(tokens[1]) && nday<new Integer(tokens[0])){
-			return 1; //no estÃ¡ outdated
+			return 1; //no est‡ outdated
 		} else if(nmonth==new Integer(tokens[1]) && nday==new Integer(tokens[0])){
 			return 0; //es hoy
 		} else {
-			return -1; //estÃ¡ outdated
+			return -1; //est‡ outdated
 		}
     	
+    }
+    
+    private void checkForNotifications(){
+    	Cursor notesCursor = mDbHelper.fetchAllNotes();
+    	notesCursor.moveToFirst();
     }
 }
