@@ -9,6 +9,7 @@ import android.app.ListActivity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -35,10 +36,12 @@ public class MemoryCoconutActivity extends ListActivity {
 	private static final int DELETE_ID = Menu.FIRST + 1;
 	private static final int ACERCADE_ID = Menu.FIRST + 2;
 	private static final int AYUDA_ID = Menu.FIRST + 3;
+	private static final int EDIT_ID = Menu.FIRST + 4;
 
 	private NotesDbAdapter mDbHelper;
 	private NotificationManager mNM;
-
+	private Context ctx;
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -48,7 +51,7 @@ public class MemoryCoconutActivity extends ListActivity {
 		setContentView(R.layout.reminder_list);
 
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.coco_title);
-        
+        ctx = this.getBaseContext();
 		mNM = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 		mDbHelper = new NotesDbAdapter(this);
 		mDbHelper.open();
@@ -115,6 +118,7 @@ public class MemoryCoconutActivity extends ListActivity {
 			ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
 		menu.add(0, DELETE_ID, 0, R.string.menu_delete);
+		menu.add(0, EDIT_ID, 0, R.string.edit_note);
 	}
 
 	@Override
@@ -143,6 +147,11 @@ public class MemoryCoconutActivity extends ListActivity {
 
 			(builder.create()).show();
 			return true;
+		case EDIT_ID:
+			AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+			Intent i = new Intent(this, NoteEdit.class);
+			i.putExtra(NotesDbAdapter.KEY_ROWID, info.id);
+			startActivityForResult(i, ACTIVITY_EDIT);
 		}
 		return super.onContextItemSelected(item);
 	}
@@ -156,7 +165,6 @@ public class MemoryCoconutActivity extends ListActivity {
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-
 		Intent i = new Intent(this, NoteEdit.class);
 		i.putExtra(NotesDbAdapter.KEY_ROWID, id);
 
