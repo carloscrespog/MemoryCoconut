@@ -41,7 +41,7 @@ public class MemoryCoconutActivity extends ListActivity {
 	private NotesDbAdapter mDbHelper;
 	private NotificationManager mNM;
 	private Context ctx;
-	
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -50,8 +50,8 @@ public class MemoryCoconutActivity extends ListActivity {
 		requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
 		setContentView(R.layout.reminder_list);
 
-        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.coco_title);
-        ctx = this.getBaseContext();
+		getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.coco_title);
+		ctx = this.getBaseContext();
 		mNM = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
 		mDbHelper = new NotesDbAdapter(this);
 		mDbHelper.open();
@@ -129,7 +129,7 @@ public class MemoryCoconutActivity extends ListActivity {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
 			builder.setMessage(getString(R.string.alert))
 			.setCancelable(false)
-			.setPositiveButton("S’", new DialogInterface.OnClickListener() {
+			.setPositiveButton("SÃ­", new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog, int id) {
 
 					AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
@@ -187,14 +187,14 @@ public class MemoryCoconutActivity extends ListActivity {
 		//Toast.makeText(getBaseContext(),"dia actual: "+nday.toString()+"mes actual: "+nmonth.toString(),Toast.LENGTH_SHORT).show();
 		Log.v(LOGGER,new Integer(nmonth.compareTo(new Integer(tokens[1]))).toString());
 		if(nmonth<new Integer(tokens[1])){
-			return 1; //no est‡ outdated
+			return 1; //no esta outdated
 		} else if(nmonth.compareTo(new Integer(tokens[1]))==0 && nday<new Integer(tokens[2])){
-			return 1; //no est‡ outdated
+			return 1; //no esta outdated
 		} else if(nmonth.compareTo(new Integer(tokens[1]))==0 && nday.compareTo(new Integer(tokens[2]))==0){
 			return 0; //es hoy
 		} else {
 			//Toast.makeText(getBaseContext(),"dia actual: "+nday+"dia testeado: "+new Integer(tokens[2])+"mes actual: "+nmonth.toString()+" mes testeado: "+new Integer(tokens[1]),Toast.LENGTH_LONG).show();
-			return -1; //est‡ outdated
+			return -1; //esta outdated
 		}
 
 
@@ -239,10 +239,10 @@ public class MemoryCoconutActivity extends ListActivity {
 
 			switch(flag){
 			case -1:
-				titleText="ÁTienes recocordatorios atrasados!";
+				titleText="Â¡Tienes recocordatorios atrasados!";
 				break;
 			case 0:
-				titleText="ÁTienes recocordatorios hoy!";
+				titleText="Â¡Tienes recocordatorios hoy!";
 				break;
 			}
 
@@ -255,16 +255,15 @@ public class MemoryCoconutActivity extends ListActivity {
 			Notification notification = new Notification(R.drawable.icon, titleText,
 					System.currentTimeMillis());
 
-			// The PendingIntent to launch our activity if the user selects this notification
+
 			PendingIntent contentIntent = PendingIntent.getActivity(this, 0,
 					new Intent(this, MemoryCoconutActivity.class), 0);
 
 
-			// Set the info for the views that show in the notification panel.
+
 			notification.setLatestEventInfo(this, titleText,contentText, contentIntent);
 
-			// Send the notification.
-			// We use a string id because it is a unique number.  We use it later to cancel.
+
 			mNM.notify(flag, notification);
 		}
 	}
