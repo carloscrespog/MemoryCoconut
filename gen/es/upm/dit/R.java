@@ -69,5 +69,6 @@ public final class R {
     public static final class style {
         public static final int BatidoCoco=0x7f060001;
         public static final int CocoTheme=0x7f060000;
+        public static final int titulos=0x7f060002;
     }
 }
