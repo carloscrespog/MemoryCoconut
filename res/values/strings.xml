@@ -23,5 +23,6 @@
         Para un batido de coco pulse el botón, pero ¡atengase a las consecuencias!</string>
     <string name="title_ayuda">Ayuda</string>
     <string name="button_batido">¡BATIDO DE COCO!</string>
+    <string name="button_mail">Mandar correo electrónico</string>
 </resources>
 

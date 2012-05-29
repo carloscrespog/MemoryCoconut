@@ -24,26 +24,28 @@
 			android:layout_height="wrap_content"
 			android:layout_weight="0.5"
 			android:scrollbars="vertical" />
+			
+			<TextView android:id="@+id/dateDisplay"
+       	 	style ="@style/titulos" 
+       	 	android:text=""/>
 
 			<LinearLayout
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content" >
-
 				<TextView
 				    style="@style/titulos"
 				    android:text="@string/email" />
-
 				<TextView
 				    android:id="@+id/email"
 				    android:layout_width="match_parent"
 				    android:layout_height="wrap_content"
 				    android:scrollbars="vertical" />
-
 			</LinearLayout>
 			
-			<TextView android:id="@+id/dateDisplay"
-       	 	style ="@style/titulos" 
-       	 	android:text=""/>
+			<Button android:id="@+id/emailbtn"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+        	android:text="@string/button_mail" />
         
 		</LinearLayout>
 	</ScrollView>

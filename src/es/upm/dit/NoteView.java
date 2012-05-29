@@ -1,12 +1,16 @@
 package es.upm.dit;
 
 import android.app.Activity;
+import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.provider.ContactsContract.CommonDataKinds.Email;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-public class NoteView extends Activity {
+public class NoteView extends Activity implements View.OnClickListener{
     private TextView mTitleText;
     private TextView mBodyText;
     private TextView mEmailText;
@@ -14,6 +18,7 @@ public class NoteView extends Activity {
 	private Long mRowId;
 	private TextView mDateDisplay;
 	private NotesDbAdapter mDbHelper;
+	private Button mailBtn;
 	 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +29,9 @@ public class NoteView extends Activity {
         
         setContentView(R.layout.reminder_view);
         setTitle(R.string.view_note);
+        
+        mailBtn=(Button) findViewById(R.id.emailbtn);
+        mailBtn.setOnClickListener(this); //this referencia a esta clase, necesita implementar la interfaz View.OnClickListener para k funcione (le obliga a tner metodo onClick)
         mRowId = (savedInstanceState == null) ? null :
             (Long) savedInstanceState.getSerializable(NotesDbAdapter.KEY_ROWID);
         if (mRowId == null) {
@@ -41,6 +49,20 @@ public class NoteView extends Activity {
         populateFields();
       
 	}
+	  @Override
+      public void onClick(View v) {
+      	final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+      	emailIntent.setType("plain/text");
+      	//cargamos la direccion guardad como destinatario
+      	emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{ 
+      			mEmailText.getText().toString()}); 
+      	//ponemos como asunto por defecto el titulo del recocordatorio
+      	emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, mTitleText.getText().toString());
+      	//ponemos como contenido por defecto la descripcion del recocordatorio
+      	emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, mBodyText.getText().toString());
+      	startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+
+      }
 	
 	private void populateFields() {
         if (mRowId != null) {
