@@ -3,16 +3,33 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:textSize="25sp"
-    android:text="@string/content_ayuda1" />
-<TextView  
-    android:layout_width="fill_parent" 
-    android:layout_height="wrap_content" 
-    android:text="@string/content_ayuda2" />
-<Button style="@style/BatidoCoco"
-   		android:id="@+id/cocoBtn" 
-        android:text="@string/button_batido" />
+<ScrollView android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	
+	<LinearLayout android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="fill_parent">
+		<TextView  
+    		android:layout_width="fill_parent" 
+    		android:layout_height="wrap_content" 
+    		android:textSize="25sp"
+    		android:text="@string/content_ayuda1" />
+		<TextView  
+    		android:layout_width="fill_parent" 
+    		android:layout_height="wrap_content" 
+    		android:text="@string/content_ayuda2" />
+		<TextView  
+    		android:layout_width="fill_parent" 
+    		android:layout_height="wrap_content" 
+    		android:text="@string/content_ayuda3" />
+		<TextView  
+    		android:layout_width="fill_parent" 
+    		android:layout_height="wrap_content" 
+    		android:text="@string/content_ayuda4" />
+		<Button style="@style/BatidoCoco"
+   			android:id="@+id/cocoBtn" 
+        	android:text="@string/button_batido" />
+	</LinearLayout>	
+	
+</ScrollView>
 </LinearLayout>

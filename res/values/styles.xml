@@ -2,6 +2,8 @@
 <resources>
     <color name="fondo">#062842</color>
     <color name="letras">#edf2f5</color>
+    <color name="titulos">#e8b22a</color>
+    
     <style name="CocoTheme" parent="android:Theme.Light">
     	<item name="android:windowBackground">@drawable/memorycoconutbg</item>
 
@@ -9,6 +11,15 @@
 
     	<item name="android:colorBackground">@color/fondo</item>
     	<item name="android:textColor">@color/letras</item>
+    	 <item name="android:textSize">20sp</item>
+    </style>
+   	<style name="CocoTheme2" parent="android:Theme.Light">
+    	<item name="android:windowBackground">@drawable/memorycoconutbg</item>
+
+    	<item name="android:windowTitleSize">60dip</item>
+
+    	<item name="android:colorBackground">@color/fondo</item>
+    	<item name="android:textColor">@color/titulos</item>
     	 <item name="android:textSize">20sp</item>
     </style>
     <style name= "BatidoCoco" >
@@ -20,7 +31,7 @@
     <style name= "titulos" >
         <item name ="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/letras</item>
+        <item name="android:textColor">@color/titulos</item>
         <item name="android:textSize">27sp</item>
     </style>
 </resources>

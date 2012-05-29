@@ -14,12 +14,15 @@
     <string name="hello">Hola Cococola</string>
     <string name="alert">¿Está seguro que quiere eliminar este recocordatorio?</string>
     <string name="menu_acercade">Acerca de</string>
-    <string name="content_acercade">Esta aplicación ha sido desarrollada por Enrique García Navalón y Carlos Crespo González.</string>
+    <string name="content_acercade1">MemoryCoconut v1.0</string>
+	<string name="content_acercade2">Esta aplicación ha sido desarrollada por Enrique García Navalón y Carlos Crespo González.</string>
     <string name="title_acercade">Acerca de MemoryCoconut</string>
     <string name="menu_ayuda">Ayuda</string>
     <string name="content_ayuda1">Cómo usar MemoryCononut.</string>
-    <string name="content_ayuda2">Para crear un nuevo recocordatorio utilice la tecla de menú.
-        Puede editar sus recocordatorios clickando en ellos o eliminarlos si mantiene pulsado.
+    <string name="content_ayuda2">Para crear un nuevo recocordatorio utilice la tecla de menú.</string>
+	<string name="content_ayuda3">Pulse una vez sobre un recocordatorio para ver la información que contiene.Puede mandar un correo
+        directamente utilizando el boton de mandar email, con los datos del recocordatorio en asunto y cuerpo por defecto.</string>
+	<string name="content_ayuda4">Si mantiene pulsado sobre un recocordatorio abria un menu donde podra editar o borrar dicho recocordatorio.
         Para un batido de coco pulse el botón, pero ¡atengase a las consecuencias!</string>
     <string name="title_ayuda">Ayuda</string>
     <string name="button_batido">¡BATIDO DE COCO!</string>
