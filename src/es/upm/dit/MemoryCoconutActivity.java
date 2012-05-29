@@ -18,13 +18,13 @@ import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
-import android.widget.Toast;
 
 public class MemoryCoconutActivity extends ListActivity {
 
@@ -81,22 +81,26 @@ public class MemoryCoconutActivity extends ListActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		super.onCreateOptionsMenu(menu);
-		menu.add(0, INSERT_ID, 0, R.string.menu_insert);
-		menu.add(0, ACERCADE_ID, 0, R.string.menu_acercade);
-		menu.add(0, AYUDA_ID, 0, R.string.menu_ayuda);
+		MenuInflater inflater = getMenuInflater(); 
+		inflater.inflate(R.menu.menu, menu);
+//		menu.add(0, INSERT_ID, 0, R.string.menu_insert);
+//		menu.add(0, ACERCADE_ID, 0, R.string.menu_acercade);
+//		menu.add(0, AYUDA_ID, 0, R.string.menu_ayuda);
 		return true;
 	}
 
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		AdapterContextMenuInfo info =
+			      (AdapterContextMenuInfo) item.getMenuInfo();
 		switch(item.getItemId()) {
-		case INSERT_ID:
+		case R.id.insert:
 			createNote();
 			return true;
-		case ACERCADE_ID:
+		case R.id.acercade:
 			mostrarAcercade();
 			return true;
-		case AYUDA_ID:
+		case R.id.ayuda:
 			mostrarAyuda();
 			return true;
 		}
@@ -117,41 +121,23 @@ public class MemoryCoconutActivity extends ListActivity {
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
-		menu.add(0, DELETE_ID, 0, R.string.menu_delete);
-		menu.add(0, EDIT_ID, 0, R.string.edit_note);
+		
+		MenuInflater inflater = getMenuInflater(); 
+		inflater.inflate(R.menu.context_menu, menu);
 	}
 
 	@Override
 	public boolean onContextItemSelected(final MenuItem item) {
+		AdapterContextMenuInfo info =
+				(AdapterContextMenuInfo) item.getMenuInfo();
 		switch(item.getItemId()) {
-		case DELETE_ID:
+		case R.id.delete:
 
-			AlertDialog.Builder builder = new AlertDialog.Builder(this);
-			builder.setMessage(getString(R.string.alert))
-			.setCancelable(false)
-			.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int id) {
-
-					AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
-					mDbHelper.deleteNote(info.id);
-					fillData();
-
-
-				}
-			})
-			.setNegativeButton("No", new DialogInterface.OnClickListener() {
-				public void onClick(DialogInterface dialog, int id) {
-					dialog.cancel();
-				}
-			});
-
-			(builder.create()).show();
+			deleteNote(info.id);
 			return true;
-		case EDIT_ID:
-			AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
-			Intent i = new Intent(this, NoteEdit.class);
-			i.putExtra(NotesDbAdapter.KEY_ROWID, info.id );//info.id deberia tener el id del elemento pulsado para abrir el contextmenu
-			startActivityForResult(i, ACTIVITY_EDIT);
+		case R.id.edit:
+			editNote(info.id);
+			
 		}
 		return super.onContextItemSelected(item);
 	}
@@ -272,6 +258,33 @@ public class MemoryCoconutActivity extends ListActivity {
 	protected void onResume() {
 		checkForNotifications();
 		super.onResume();
+	}
+	private void deleteNote(final long id2){
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setMessage(getString(R.string.alert))
+		.setCancelable(false)
+		.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) {
+
+
+				mDbHelper.deleteNote(id2);
+				fillData();
+
+
+			}
+		})
+		.setNegativeButton("No", new DialogInterface.OnClickListener() {
+			public void onClick(DialogInterface dialog, int id) {
+				dialog.cancel();
+			}
+		});
+
+		(builder.create()).show();
+	}
+	private void editNote(long id2){
+		Intent i = new Intent(this, NoteEdit.class);
+		i.putExtra(NotesDbAdapter.KEY_ROWID, id2 );
+		startActivityForResult(i, ACTIVITY_EDIT);
 	}
 
 }

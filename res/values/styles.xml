@@ -2,7 +2,7 @@
 <resources>
     <color name="fondo">#062842</color>
     <color name="letras">#edf2f5</color>
-    <color name="titulos">#e8b22a</color>
+    <color name="titulos">#ffdf8e</color>
     
     <style name="CocoTheme" parent="android:Theme.Light">
     	<item name="android:windowBackground">@drawable/memorycoconutbg</item>

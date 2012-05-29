@@ -8,6 +8,7 @@
 		<TextView android:id="@+id/text1" 
 				  android:layout_column="1"
                   android:padding="3dip"
+                  android:maxWidth="70dip"
                   />
     
 		<TextView android:id="@+id/text2" 
