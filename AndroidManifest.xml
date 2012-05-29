@@ -23,5 +23,7 @@
 	    	  android:theme="@style/CocoTheme"></activity>
 	<activity android:name=".AyudaActivity"
 	    	  android:theme="@style/CocoTheme"></activity>
+	<activity android:name=".NoteView"
+	    	  android:theme="@style/CocoTheme"></activity>
     </application>
 </manifest>

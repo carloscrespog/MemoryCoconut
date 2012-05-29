@@ -150,7 +150,7 @@ public class MemoryCoconutActivity extends ListActivity {
 		case EDIT_ID:
 			AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 			Intent i = new Intent(this, NoteEdit.class);
-			i.putExtra(NotesDbAdapter.KEY_ROWID, info.id);
+			i.putExtra(NotesDbAdapter.KEY_ROWID, info.id );//info.id deberia tener el id del elemento pulsado para abrir el contextmenu
 			startActivityForResult(i, ACTIVITY_EDIT);
 		}
 		return super.onContextItemSelected(item);
@@ -165,10 +165,9 @@ public class MemoryCoconutActivity extends ListActivity {
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		Intent i = new Intent(this, NoteEdit.class);
-		i.putExtra(NotesDbAdapter.KEY_ROWID, id);
-
-		startActivityForResult(i, ACTIVITY_EDIT);
+		Intent i = new Intent(this, NoteView.class);
+		i.putExtra(NotesDbAdapter.KEY_ROWID, id );//el problema parece estar aki
+		startActivity(i);
 	}
 
 	@Override
